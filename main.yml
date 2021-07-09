@@ -1,0 +1,21 @@
+- name: Spining up Jenkins server based on a Dockerfile
+  hosts: localhost
+  gather_facts: no
+  tasks:
+    - name: creating a directory for dockerfile
+      file:
+        path: /tmp/jenkins
+        state: directory
+    - name: copy docker file
+      copy:
+        src: ./Dockerfile
+        dest: /tmp/jenkins/Dockerfile
+    - name: build jenkins docker image
+      docker_image:
+        name: jenkins-blueocean-dotnet-img
+        build:
+          path: /tmp/jenkins
+        source: build
+        state: present
+    - name: launching container with privileged access
+      shell: docker run --privileged=true --name jenkins-master -d -p8080:8080 jenkins-blueocean-dotnet-img
