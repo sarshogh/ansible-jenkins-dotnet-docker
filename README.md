@@ -2,7 +2,7 @@
 
  A simple Ansible playbook to build and run Jenkins Master Node from a dockerfile 
  
-It is a customised Dockerfile to install Jenkins, .Net5 and Blueocean all together your local machine/server; and at the end runs a instance/container of that image with previligaed=true flag
+It is a customised Dockerfile to install Jenkins, .Net5 and Blueocean all together on your local machine/server; and at the end runs a instance/container of that image with previligaed=true flag
 
 To access to container and check all installation have been done properly you can run:
 
